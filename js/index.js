@@ -11,11 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch("https://jsonplaceholder.typicode.com/todos")
      .then(response => response.json())
-     .then(data =>{
-        for (let i = 0; i <= data.length; i++){
-            addToDo(data[i].title)
-        }
-     } )
+     .then(todos =>
+        // todos.forEach(todo => addToDo(todo.title))
+
+        todos.map(todo => addToDo(todo.title))
+        
+    //      {
+    //     for (let i = 0; i <= todos.length; i++){
+    //         addToDo(todos[i].title)
+    //     }
+    //  }
+     )
     
  
 
@@ -26,5 +32,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
  
 
-// addToDo("Testing")
 })
