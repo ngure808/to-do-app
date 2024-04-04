@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const baseURL = "http://localhost:3000/todos"
+    
     let toDoList = document.getElementById("unorder")
     let toDoForm = document.querySelector("form")
 
@@ -9,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addToDo(newToDo)
     })
 
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch(baseURL)
      .then(response => response.json())
      .then(todos =>
         // todos.forEach(todo => addToDo(todo.title))
@@ -30,6 +32,4 @@ document.addEventListener("DOMContentLoaded", () => {
         li.innerHTML = value
         toDoList.appendChild(li)
     }
- 
-
 })
